@@ -1,5 +1,7 @@
 const axios = require('axios');
+const { getAccessToken } = require('../utils/auth');
 const POSTS_URL = 'http://20.244.56.144/test/posts';
+const USERS_URL = 'http://20.244.56.144/test/users';
 
 // Function to fetch latest 5 posts
 async function getLatestPosts(req, res) {
