@@ -15,7 +15,7 @@ export default function FeedPage() {
       setPosts(latestPosts);
       setLoading(false);
     } catch (err) {
-      setError('Failed to load latest posts');
+      setError(`Failed to load latest posts: ${err}`);
       setLoading(false);
     }
   };

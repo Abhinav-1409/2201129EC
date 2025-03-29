@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Counter</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Word Count Calculator</h1>
+        <form onsubmit="calculate(event)">
+            <label for="Text"></label>
+            <input id="textField" type="text" placeholder="Type or Paste Text here" class="textField">
+            <button type="submit" class="calculate" >Calculate</button>
+            <button onclick = clear()  class="clear"> Clear Text</button>
+        </form>
+        <div class="outputContainer">
+            <div id="words" class="output">Words</div>
+            <div id="characters" class="output">Characters</div>
+            <div id="sentences" class="output">Sentences</div>
+        </div>
+    </div>
+    <script>
+        function calculate(e){
+            e.preventDefault();
+            const inputText = document.getElementById("textField").value;
+            let words = [];
+            let wordsNo = 0
+            let characters = 0;
+            let sentences = 0;
+            words = inputText.split(/[.\s]+/);
+            wordsNo = words.length;
+            for (var i = 0 ; i<wordsNo; i++){
+                characters += words[i].length;
+            }
+            sentences = inputText.split('.').length;
+            const outputWords = document.getElementById('words').innerText = `${wordsNo} words`;
+            const outputChar = document.getElementById("characters").innerText = `${characters} Characters`;
+            const outputSentences = document.getElementById("sentences").innerText = `${sentences} Sentences`;
+        }
+        function clear(){
+            const input = document.getElementById("textField").innerText = "";
+        }
+    </script>
+</body>
+</html>
